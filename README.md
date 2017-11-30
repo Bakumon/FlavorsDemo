@@ -1,5 +1,7 @@
 # FlavorsDemo
 
+利用 productFlavors 构造变体做 Url 环境(开发、预上线、生产)的区分，多渠道可以使用 [walle(Android Signature V2 Scheme签名下的新一代渠道包打包神器)](https://github.com/Meituan-Dianping/walle)实现。这里有个 [WalleDemo](https://github.com/Bakumon/WalleDemo)。
+
 ## 目的
 
 1. 为了避免打不同环境包时，频繁更改 ENV.java 文件可能导致的错误。
