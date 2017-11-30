@@ -13,6 +13,21 @@
 2. 修改 AndroidManifest.xml ：android:label="${app_name}"
 3. 修改 ENV.java
 
+## 获取环境类型
+
+```java
+public static String getHttpHost() {
+    if (BuildConfig.ENV_TYPE == 1) {
+        return TestHost;
+    } else if (BuildConfig.ENV_TYPE == 2) {
+        return PreReleaseHost;
+    } else if (BuildConfig.ENV_TYPE == 3) {
+        return ReleaseHost;
+    }
+    return ReleaseHost;
+}
+```
+
 ## 怎么打包
 
 使用 gradle 命令：
