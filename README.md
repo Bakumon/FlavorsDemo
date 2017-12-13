@@ -85,3 +85,25 @@ public static String getHttpHost() {
     点击 studio 左下角 "Build Variants"，给 app 选择默认的命令即可。
 
     比如，可以选择 "productRelease"，run 的时候就直接把生产环境的 release 包安装到了手机上。
+
+## 自定义 apk 文件名
+
+   demo 输出的文件名是这样的：
+
+   > 应用名-变种名-编译类型-版本号-版本名称-创建时间.apk
+
+   自定义 apk 文件名时，需要的信息都可以从 variant 中取到，以下表格列举一些 String 类型的变量：
+
+   注：以下取到的值都是当前编译下，所以当改变编译类型或变种等，值也会跟着改变。
+
+   |variant的成员变量|含义|示例|
+   |---|---|---|
+   |baseName|变种名和编译类型的结合|develop-debug|
+   |name|variant的名称|developDebug|
+   |flavorName|变种名|develop|
+   |buildType.name|编译类型|debug|
+   |versionCode|版本号|1|
+   |versionName|版本名称|1.0|
+   |applicationId|包名|me.bakuon.demo.flavorsdemo|
+
+   gradle 插件 3.0.0 以后版本自定义 apk 文件名方法有所改变，具体见 [demo](/app/build.gradle)

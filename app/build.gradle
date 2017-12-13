@@ -54,6 +54,7 @@ android {
                     app_name: "开发-FlavorsDemo"
             ]
             // 分类
+            // gradle 插件 3.0.0 以后版本必须，老版本可以不用
             dimension "env"
         }
         // 预上线环境
@@ -73,6 +74,25 @@ android {
             dimension "env"
         }
     }
+    // 自定义 apk 文件名
+    // 老版 gradle 插件
+//    android.applicationVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            def outputFile = output.outputFile
+//            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                //这里修改apk文件名
+//                def fileName = "FlavorsDemo-${variant.baseName}-${variant.versionCode}-V${variant.versionName}-${new Date().format("yyyy_MM_dd_HH_mm", TimeZone.getDefault())}.apk"
+//                output.outputFile = new File(outputFile.parent, fileName)
+//            }
+//        }
+//    }
+    // gradle 插件 3.0.0 以后版本
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "FlavorsDemo-${variant.baseName}-${variant.versionCode}-V${variant.versionName}-${new Date().format("yyyy_MM_dd_HH_mm", TimeZone.getDefault())}.apk"
+        }
+    }
+
 }
 
 dependencies {
